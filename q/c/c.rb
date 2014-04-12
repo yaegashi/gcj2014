@@ -37,10 +37,10 @@ end
 n.times do |i|
   r, c, m = gets.chomp.split.map(&:to_i)
   s = r*c-m
-  t = a = nil
+  t = 1
+  a = Array.new(r*c, 0)
+  a[0] = 1
   catch(:break) do
-    t = 0
-    a = Array.new(r*c, 0)
     (0...r).each do |y|
       (0...c).each do |x|
         t = mark(a, r, c, y, x)
@@ -48,7 +48,7 @@ n.times do |i|
         break if t+3 == s
       end
     end
-  end
+  end if t != s
   catch(:break) do
     t = 0
     a = Array.new(r*c, 0)

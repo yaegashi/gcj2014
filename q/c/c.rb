@@ -45,7 +45,10 @@ n.times do |i|
       (0...c).each do |x|
         t = mark(a, r, c, y, x)
         throw :break if t >= s
-        break if t+3 == s
+        if y < r-2
+          break if t+3 == s && x > 0
+          break if t+2 == s && x == c-3
+        end
       end
     end
   end if t != s
@@ -56,7 +59,10 @@ n.times do |i|
       (0...r).each do |y|
         t = mark(a, r, c, y, x)
         throw :break if t >= s
-        break if t+3 == s
+        if x < c-2
+          break if t+3 == s && y > 0
+          break if t+2 == s && y == r-3
+        end
       end
     end
   end if t != s

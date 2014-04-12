@@ -11,7 +11,7 @@ def deceitful_war(nb, kb, np, kp, len, memo)
   else
     pt0 = deceitful_war(nb, kb, np+1, kp+1, len-1, memo)
     pt1 = deceitful_war(nb, kb, np+1, kp, len-1, memo)
-    pt= pt0 > pt1 ? pt0 : pt1
+    pt = pt0 > pt1 ? pt0 : pt1
   end
   return memo[key] = pt
 end
